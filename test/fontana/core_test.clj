@@ -5,26 +5,17 @@
 (deftest dialog
   (testing "one"
     (is (=
-          (parse "JOE\nHey, Jane")
-          [:Script
-            [:Dialogue
-              [:Character "JOE"]
-              [:Talk "Hey, Jane"]]])))
-(testing "more"
-    (is (=
-          (parse
-"JOE
-Hey
+          (parse "
+EXT. HOUSE - DAY
 
-JANE
-What?")
+JOE
+Hey, Jane")
           [:Script
-            [:Dialogue
-              [:Character "JOE"]
-              [:Talk "Hey"]]
-            [:Dialogue
-              [:Character "JANE"]
-              [:Talk "What?"]]]))))
+	    [:Scene 
+              [:Heading "EXT." " HOUSE - DAY"]
+              [:Dialogue
+                [:Character "JOE"]
+                [:Talk "Hey, Jane"]]]]))))
 
 
 (run-tests)

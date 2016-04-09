@@ -1,4 +1,6 @@
-Script = <Newline>* Part (<Newline>+ Part)*
+Script = <Newline>* Scene (<Newline>+ Scene)* <Newline>*
+Scene = Heading Part? (<Newline>+ Part)*
+Heading = ('INT.' | 'EXT.' | <'.'>) #'[A-Z\- ]+'
 <Part> = Dialogue
 Newline = '\n'
 Dialogue = Character <Newline>+ Talk
