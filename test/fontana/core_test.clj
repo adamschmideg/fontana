@@ -7,7 +7,7 @@
     (is (=
           (parse "JOE\nHey, Jane")
           [:Script
-            [:Dialog
+            [:Dialogue
               [:Character "JOE"]
               [:Talk "Hey, Jane"]]])))
 (testing "more"
@@ -19,11 +19,12 @@ Hey
 JANE
 What?")
           [:Script
-            [:Dialog
+            [:Dialogue
               [:Character "JOE"]
               [:Talk "Hey"]]
-            [:Dialog
+            [:Dialogue
               [:Character "JANE"]
               [:Talk "What?"]]]))))
+
 
 (run-tests)

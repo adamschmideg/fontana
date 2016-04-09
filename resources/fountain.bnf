@@ -1,5 +1,6 @@
-Script = Dialog (<Newline+> Dialog)*
+Script = <Newline>* Part (<Newline>+ Part)*
+<Part> = Dialogue
 Newline = '\n'
-Dialog = Character <Newline> Talk
+Dialogue = Character <Newline>+ Talk
 Character = #'[A-Z\- ]+'
 Talk = #'.*'
