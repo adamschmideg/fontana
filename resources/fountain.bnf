@@ -1,0 +1,5 @@
+Script = Dialog (<Newline+> Dialog)*
+Newline = '\n'
+Dialog = Character <Newline> Talk
+Character = #'[A-Z\- ]+'
+Talk = #'.*'
