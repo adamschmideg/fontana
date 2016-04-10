@@ -1,8 +1,11 @@
 Script = <Newline>* Scene (<Newline>+ Scene)* <Newline>*
-Scene = Heading Part? (<Newline>+ Part)*
+Scene = Heading <Newline>+ Part (<Newline>+ Part)*
 Heading = ('INT.' | 'EXT.' | <'.'>) #'[A-Z\- ]+'
 <Part> = Dialogue
 Newline = '\n'
-Dialogue = Character <Newline>+ Talk
+Dialogue = Character <Newline> (Parenthetical <Newline>)? Talk (<Newline> Parenthetical <Newline> Talk)*
 Character = #'[A-Z\- ]+'
-Talk = #'.*'
+Talk = !'(' Line (<Newline> Line)*
+Parenthetical = <'('> Line (<Newline> Line)* <')'>
+Line = #'.'+
+

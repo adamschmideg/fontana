@@ -2,6 +2,20 @@
   (:require [clojure.test :refer :all]
             [fontana.core :refer :all]))
 
+(def script "
+EXT. HOUSE - DAY
+
+JOE
+Hey
+
+JANE
+(angrily)
+What?
+You called me?
+
+JOE
+Relax")
+
 (deftest dialog
   (testing "one"
     (is (=
@@ -18,4 +32,6 @@ Hey, Jane")
                 [:Talk "Hey, Jane"]]]]))))
 
 
-(run-tests)
+(clojure.pprint/pprint (parse script))
+
+;(run-tests)

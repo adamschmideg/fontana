@@ -4,4 +4,5 @@
 (def fountain-parser
   (insta/parser (clojure.java.io/resource "fountain.bnf")))
 
-(defn parse [s] (fountain-parser s))
+(defn parse [s] 
+  (->> (fountain-parser s) (insta/transform {:Line str})))
