@@ -5,10 +5,9 @@ Heading = ('INT.' | 'EXT.' | <'.'>) Line
 Newline = '\n'
 Dialogue = Character <Newline> (Parenthetical <Newline>)? Talk (<Newline> Parenthetical <Newline> Talk)*
 Character = <WS> #'[A-Z\- ]+'
-Talk = !'(' Line (<Newline> Line)*
-Parenthetical = <'('> Line (<Newline> Line)* <')'>
+Talk = Line (<Newline> Line)*
+Parenthetical = <WS> <'('> Line (<Newline> Line)* <')'>
 Action = Line (<Newline> Line)*
 Transition = <WS> #'[A-Z ]+TO:'
 WS = #'[\ \t]*'
-Line = <WS> #'.'+
-
+Line = <WS> !'(' #'.'+
