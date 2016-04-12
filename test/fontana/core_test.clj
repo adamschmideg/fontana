@@ -5,6 +5,11 @@
 (def script "
 EXT. HOUSE - DAY
 
+JOE holds a KNIFE in his hand.
+He looks tired.
+
+JANE comes and notices Joe.
+
 JOE
 Hey
 
@@ -14,7 +19,14 @@ What?
 You called me?
 
 JOE
-Relax")
+Relax
+
+They enter the house.
+
+INT. ROOM - DAY
+
+Joe switches on the light.
+")
 
 (deftest dialog
   (testing "one"
