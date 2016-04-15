@@ -22,6 +22,8 @@
   (let [script 
         (insta/transform 
             {:Line str,
+             :Script (div :script),
+             :Scene (div :scene),
              :Dialogue (div :dialogue),
              :Character (div :character),
              :Parenthetical (div-join-lines :parenthetical),
