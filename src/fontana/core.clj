@@ -31,5 +31,15 @@
              :Action (div-join-lines :action),
              :Header (div :header)}
             tree)]
-    (hiccup/html [:html [:body script]])))
+    (hiccup/html 
+      [:html 
+       [:head
+        [:link {:rel "stylesheet" :type "text/css" :href "screenplay.css"}]]
+       [:body script]])))
   
+(defn convert 
+  ([in out]
+    (spit out (convert in)))
+  ([in]
+    (-> in slurp parse to-html)))
+        
