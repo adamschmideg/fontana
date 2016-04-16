@@ -1,6 +1,6 @@
 # fontana
 
-A Clojure library designed to ... well, that part is up to you.
+Parse a screenplay in fountain format and convert it to html suitable for small screens.
 
 ## Usage
 
