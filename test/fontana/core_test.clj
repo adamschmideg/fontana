@@ -1,52 +1,20 @@
 (ns fontana.core-test
   (:require [clojure.test :refer :all]
+            [instaparse.core :as insta]
             [fontana.core :refer :all]))
 
-(def script "
-EXT. HOUSE - DAY
+(defn parse-part [script]
+  (first
+    (insta/transform 
+      {:Line str}
+      (fountain-parser script :start :Part))))
 
-JOE holds a KNIFE in his hand.
-He looks tired.
+(deftest dialog 
+  (are [script parsed]
+       (= (parse-part script) parsed)
+       "JOE\nCome here"
+       [:Dialogue
+        [:Character "JOE"]
+        [:Talk "Come here"]]))
 
-JANE comes and notices Joe.
-
-JOE
-Hey
-
-JANE
-What?
-(angrily)
-What??
-You called me?
-
-JOE
-Relax
-
-They enter the house.
-
-            CUT TO:
-
-INT. ROOM - DAY
-
-Joe switches on the light.
-")
-
-(deftest dialog
-  (testing "one"
-    (is (=
-          (parse "
-EXT. HOUSE - DAY
-
-JOE
-Hey, Jane")
-          [:Script
-	    [:Scene 
-              [:Heading "EXT." " HOUSE - DAY"]
-              [:Dialogue
-                [:Character "JOE"]
-                [:Talk "Hey, Jane"]]]]))))
-
-
-(clojure.pprint/pprint (parse script))
-
-;(run-tests)
+(run-tests)
