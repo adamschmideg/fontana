@@ -15,6 +15,13 @@
        "JOE\nCome here"
        [:Dialogue
         [:Character "JOE"]
-        [:Talk "Come here"]]))
+        [:Talk "Come here"]]
+
+       "JOE\n(impatient)\nCome here"
+       [:Dialogue
+        [:Character "JOE"]
+        [:Parenthetical "impatient"]
+        [:Talk "Come here"]]
+       ))
 
 (run-tests)
