@@ -26,7 +26,8 @@
              :Scene (div :scene),
              :Dialogue (div :dialogue),
              :Character (div :character),
-             :Parenthetical (div-join-lines :parenthetical),
+             :Parenthetical (comp (div-join-lines :parenthetical) 
+                                  #(str "(" % ")")),
              :Talk (div-join-lines :talk),
              :Action (div-join-lines :action),
              :Header (div :header)}
@@ -34,8 +35,8 @@
     (hiccup/html 
       [:html 
        [:head
-        [:style (clojure.java.io/resource "screenplay.css")]
-       [:body script]])))
+        [:style (slurp (clojure.java.io/resource "screenplay.css"))]
+       [:body script]]])))
   
 (defn convert 
   ([in out]
