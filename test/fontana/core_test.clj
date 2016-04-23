@@ -4,32 +4,30 @@
             [fontana.core :refer :all]))
 
 (defn parse-from [script start]
-  (first
-    (insta/transform 
-      {:Line str}
-      (fountain-parser script :start start))))
+  (insta/transform 
+    {:Line str}
+    (fountain-parser script :start start)))
 
 (deftest title-page 
   (are [script parsed]
        (= (parse-from script :TitlePage) parsed)
        "Title: Casablanca"
-       ;[:TitlePage [:Title "Casablanca"]]
-       :TitlePage
+       [:TitlePage [:Title "Casablanca"]]
        ))
 
 (deftest dialog 
   (are [script parsed]
        (= (parse-from script :Part) parsed)
        "JOE\nCome here"
-       [:Dialogue
-        [:Character "JOE"]
-        [:Talk "Come here"]]
+       '([:Dialogue
+          [:Character "JOE"]
+          [:Talk "Come here"]])
 
        "JOE\n(impatient)\nCome here"
-       [:Dialogue
-        [:Character "JOE"]
-        [:Parenthetical "impatient"]
-        [:Talk "Come here"]]
+       '([:Dialogue
+          [:Character "JOE"]
+          [:Parenthetical "impatient"]
+          [:Talk "Come here"]])
        ))
 
 (run-tests)
