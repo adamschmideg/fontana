@@ -5,7 +5,9 @@
 
 (defn parse-from [script start]
   (insta/transform 
-    {:Line str}
+    {:Line str,
+     :Multiline vector
+     }
     (fountain-parser script :start start)))
 
 (deftest title-page 
@@ -13,6 +15,9 @@
        (= (parse-from script :TitlePage) parsed)
        "Title: Casablanca"
        [:TitlePage [:Title "Casablanca"]]
+
+       "Title:\n\tJack\n\tand\n\tJill"
+       [:TitlePage [:Title ["Jack" "and" "Jill"]]]
        ))
 
 (deftest dialog 
