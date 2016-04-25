@@ -18,6 +18,20 @@
 
        "Title:\n\tJack\n\tand\n\tJill"
        [:TitlePage [:Title ["Jack" "and" "Jill"]]]
+
+       "Draft date: 01/April/1999"
+       [:TitlePage [:DraftDate "01/April/1999"]]
+
+       "Something: Foo bar"
+       [:TitlePage [:OtherPart "Something" "Foo bar"]]
+
+       "Something else: Foo bar"
+       [:TitlePage [:OtherPart "Something else" "Foo bar"]]
+
+       "Title: Foo bar\nAuthor: John Doe"
+       [:TitlePage 
+          [:Title "Foo bar"]
+          [:Author "John Doe"]]
        ))
 
 (deftest dialog 
